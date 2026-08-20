@@ -1,1 +1,10 @@
 @use "./reset";
+
+html,
+body {
+  min-height: 100dvh;
+}
+
+body {
+  background-color: $theme-backdrop;
+}
