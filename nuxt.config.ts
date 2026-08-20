@@ -1,7 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
+
   devtools: { enabled: true },
+
   srcDir: "src",
 
   dir: {
@@ -10,7 +12,8 @@ export default defineNuxtConfig({
   },
 
   css: ["@/app/styles/main.scss"],
-  modules: ["@nuxt/eslint"],
+
+  modules: ["@nuxt/eslint", "@nuxt/fonts", "@nuxt/icon"],
 
   vite: {
     css: {
@@ -25,5 +28,28 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+
+  fonts: {
+    families: [
+      {
+        name: "Fira Code",
+        provider: "google",
+        weights: [400, 700],
+      },
+    ],
+  },
+
+  icon: {
+    clientBundle: {
+      scan: true,
+      includeCustomCollection: true,
+    },
+    customCollections: [
+      {
+        prefix: "custom",
+        dir: "./src/shared/assets/icons",
+      },
+    ],
   },
 });
