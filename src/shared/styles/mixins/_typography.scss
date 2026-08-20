@@ -1,0 +1,60 @@
+@use "../tokens/typography" as *;
+
+@mixin typography($family, $size, $height, $weight: 400) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+@mixin fira-typography($size, $height, $weight: 400) {
+  @include typography($font-family-text, $size, $height, $weight);
+}
+
+@mixin body-sm {
+  @include fira-typography($font-size-body-sm, $line-height-body-sm);
+}
+
+@mixin body-sm-bold {
+  @include fira-typography($font-size-body-sm, $line-height-body-sm, 700);
+}
+
+@mixin body-md {
+  @include fira-typography($font-size-body-md, $line-height-body-md);
+}
+
+@mixin body-md-bold {
+  @include fira-typography($font-size-body-md, $line-height-body-md, 700);
+}
+
+@mixin body-lg {
+  @include fira-typography($font-size-body-lg, $line-height-body-lg);
+}
+
+@mixin body-lg-bold {
+  @include fira-typography($font-size-body-lg, $line-height-body-lg, 700);
+}
+
+@mixin heading-h1 {
+  @include fira-typography($font-size-heading-h1, $line-height-heading-h1);
+}
+
+@mixin heading-h2 {
+  @include fira-typography($font-size-heading-h2, $line-height-heading-h2);
+}
+
+@mixin heading-h3 {
+  @include fira-typography($font-size-heading-h3, $line-height-heading-h3);
+}
+
+@mixin heading-h4 {
+  @include fira-typography($font-size-heading-h4, $line-height-heading-h4);
+}
+
+@mixin heading-h5 {
+  @include fira-typography($font-size-heading-h5, $line-height-heading-h5);
+}
+
+@mixin heading-h6 {
+  @include fira-typography($font-size-heading-h6, $line-height-heading-h6);
+}
