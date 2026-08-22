@@ -7,27 +7,31 @@
     :aria-busy="loading || undefined"
     @click="clickBtn"
   >
-    <div v-if="loading" class="ui-button__loader">
-      <Icon name="ri:loader-line" />
-    </div>
+    <UiIcon v-if="loading" name="ri:loader-line" class="ui-button__loader" />
     <slot v-else-if="$slots['default']" />
     <template v-else-if="btnLabel">
-      <div v-if="iconPrepend" class="ui-button__icon ui-button__icon--prepent">
-        <Icon :name="iconPrepend" />
-      </div>
+      <UiIcon
+        v-if="iconPrepend"
+        :name="iconPrepend"
+        class="ui-button__icon ui-button__icon--prepent"
+      />
 
       <div class="ui-button__label">
         {{ btnLabel }}
       </div>
 
-      <div v-if="iconAppend" class="ui-button__icon ui-button__icon--append">
-        <Icon :name="iconAppend" />
-      </div>
+      <UiIcon
+        v-if="iconAppend"
+        :name="iconAppend"
+        class="ui-button__icon ui-button__icon--append"
+      />
     </template>
   </component>
 </template>
 
 <script setup lang="ts">
+import { UiIcon } from "../ui-icon";
+
 import type { IUiButtonEmits, IUiButtonProps } from "./types";
 
 const { variant = "default", ...props } = defineProps<IUiButtonProps>();
@@ -186,11 +190,6 @@ $button-gap: 10px;
     height: 20px;
     color: var(--text-color);
     transition: var(--text-color-transition);
-
-    & svg {
-      width: 100%;
-      height: 100%;
-    }
   }
 
   &__loader {

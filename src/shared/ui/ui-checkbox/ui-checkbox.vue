@@ -3,7 +3,7 @@
     <input :id="id" v-model="model" :name="name" type="checkbox" class="ui-checkbox__real" />
 
     <span class="ui-checkbox__fake">
-      <Icon v-if="model" name="custom:mark-icon" style="width: 12px; height: 12px" />
+      <UiIcon v-if="model" name="custom:mark-icon" />
     </span>
 
     <span class="ui-checkbox__label">
@@ -13,6 +13,8 @@
 </template>
 
 <script setup lang="ts">
+import { UiIcon } from "../ui-icon";
+
 import type { IUiCheckboxProps } from "./types";
 
 defineProps<IUiCheckboxProps>();
@@ -73,6 +75,11 @@ const model = defineModel<boolean>({ required: true });
     transition:
       background-color 0.2s ease,
       border-color 0.2s ease;
+
+    & .ui-icon {
+      width: 12px;
+      height: 12px;
+    }
   }
 
   &__label {

@@ -9,14 +9,14 @@
   >
     <textarea :id="id" v-model="model" class="ui-textarea__input" :disabled="disabled"></textarea>
 
-    <div v-if="icon" class="ui-textarea__icon">
-      <Icon :name="icon" style="width: inherit; height: inherit" />
-    </div>
+    <UiIcon v-if="icon" :name="icon" class="ui-textarea__icon" />
   </UiTextField>
 </template>
 
 <script setup lang="ts">
+import { UiIcon } from "../ui-icon";
 import { UiTextField, useTextControl } from "../ui-text-field";
+
 import type { IUiTextareaProps } from "./types";
 
 const props = defineProps<IUiTextareaProps>();
