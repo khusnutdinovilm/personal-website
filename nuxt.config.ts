@@ -13,7 +13,21 @@ export default defineNuxtConfig({
 
   css: ["@/app/styles/main.scss"],
 
-  modules: ["@nuxt/eslint", "@nuxt/fonts", "@nuxt/icon"],
+  modules: ["@nuxt/eslint", "@nuxt/icon", "@nuxt/image"],
+
+  image: {
+    // современные форматы: модуль сам отдаст avif/webp, если браузер поддерживает
+    format: ["avif", "webp"],
+
+    // брейкпоинты для responsive-атрибута sizes
+    screens: { xs: 320, sm: 640, md: 768, lg: 1024, xl: 1280, xxl: 1536 },
+
+    // разрешённые внешние домены для оптимизации удалённых картинок
+    // domains: ["images.unsplash.com", "storage.mysite.ru"],
+
+    // качество по умолчанию
+    quality: 80,
+  },
 
   vite: {
     css: {
@@ -30,20 +44,10 @@ export default defineNuxtConfig({
     },
   },
 
-  fonts: {
-    families: [
-      {
-        name: "Fira Code",
-        provider: "google",
-        weights: [400, 700],
-      },
-    ],
-  },
-
   icon: {
     clientBundle: {
       scan: true,
-      includeCustomCollection: true,
+      includeCustomCollections: true,
     },
     customCollections: [
       {
