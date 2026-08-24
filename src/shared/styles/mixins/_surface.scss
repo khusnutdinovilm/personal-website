@@ -1,0 +1,8 @@
+@use "../tokens/semantic" as *;
+@use "../tokens/radius" as *;
+
+@mixin surface($radius: $radius-4) {
+  border: 1px solid $theme-surface-stroke;
+  border-radius: $radius;
+  background-color: $theme-surface-background;
+}

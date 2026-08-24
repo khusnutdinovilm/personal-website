@@ -1,0 +1,34 @@
+@use "./colors" as *;
+
+$theme-backdrop: $slate-950;
+$theme-stroke: $slate-700;
+$theme-background: $slate-900;
+$theme-heading-foreground: $slate-50;
+$theme-link-foreground: $rose-300;
+$theme-link-hover-foreground: $rose-200;
+$theme-foreground: $slate-400;
+
+$theme-surface-background: $slate-950;
+$theme-surface-stroke: $slate-800;
+
+$primary-background: $orange-300;
+$primary-hover: $orange-200;
+$primary-inverted: $slate-950;
+$primary-hover-inverted: $slate-950;
+
+$semantic-success-background: $green-500;
+$semantic-success-hover: $green-400;
+$semantic-error-background: $red-500;
+$semantic-error-hover: $red-400;
+$semantic-warning-background: $yellow-500;
+$semantic-warning-hover: $yellow-400;
+$semantic-success-inverted: $slate-950;
+$semantic-success-hover-inverted: $slate-950;
+$semantic-error-inverted: $slate-950;
+$semantic-error-hover-inverted: $slate-950;
+$semantic-warning-inverted: $slate-950;
+$semantic-warning-hover-inverted: $slate-950;
+
+$semantic-success-alpha: $green-alpha-950;
+$semantic-error-alpha: $red-alpha-950;
+$semantic-warning-alpha: $yellow-alpha-950;

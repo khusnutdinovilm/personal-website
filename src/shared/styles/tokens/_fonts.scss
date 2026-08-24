@@ -1,0 +1,16 @@
+$font-dir: "/fonts";
+
+// Fira Code
+$font-name-fira-code: "Fira Code";
+$font-dir-fira-code: "fira-code";
+$font-file-name-fira-code: "FiraCode";
+$font-path-fira-code: "#{$font-dir}/#{$font-dir-fira-code}/#{$font-file-name-fira-code}";
+
+$font-formats: (
+  "woff2": "woff2",
+  "woff": "woff",
+  "ttf": "truetype",
+  "otf": "opentype",
+);
+
+$font-exts: ("woff2", "woff", "ttf", "otf");

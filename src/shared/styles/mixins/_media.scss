@@ -1,0 +1,13 @@
+@use "../tokens/breakpoints" as *;
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: ($breakpoint-desktop - 0.02px)) {
+    @content;
+  }
+}
