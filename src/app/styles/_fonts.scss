@@ -1,0 +1,6 @@
+@use "../../shared/styles/mixins/fonts" as *;
+@use "../../shared/styles/tokens/fonts" as *;
+
+@each $weight in (400, 700) {
+  @include font-face($font-name-fira-code, $font-path-fira-code, $weight, ("woff2", "woff"));
+}
