@@ -2,18 +2,23 @@
   <component
     :is="tag"
     :class="btnClasses"
+    :to="tag === 'nuxt-link' ? to : undefined"
+    :href="tag === 'a' ? href : undefined"
+    :target="tag === 'a' ? (target ?? '_blank') : undefined"
+    :rel="isBlankLink ? 'noopener noreferrer' : undefined"
     :disabled="tag === 'button' ? disabled : undefined"
     :aria-disabled="disabled || undefined"
     :aria-busy="loading || undefined"
     @click="clickBtn"
   >
-    <UiIcon v-if="loading" name="ri:loader-line" class="ui-button__loader" />
+    <UiIcon v-if="loading" name="ri:loader-line" size="md" class="ui-button__loader" />
     <slot v-else-if="$slots['default']" />
     <template v-else-if="btnLabel">
       <UiIcon
         v-if="iconPrepend"
         :name="iconPrepend"
-        class="ui-button__icon ui-button__icon--prepent"
+        size="md"
+        class="ui-button__icon ui-button__icon--prepend"
       />
 
       <div class="ui-button__label">
@@ -23,6 +28,7 @@
       <UiIcon
         v-if="iconAppend"
         :name="iconAppend"
+        size="md"
         class="ui-button__icon ui-button__icon--append"
       />
     </template>
@@ -43,6 +49,8 @@ const tag = computed(() => {
   if (props.href) return "a";
   return "button";
 });
+
+const isBlankLink = computed(() => tag.value === "a" && (props.target ?? "_blank") === "_blank");
 
 const btnClasses = computed(() => [
   "ui-button",
@@ -67,20 +75,21 @@ $button-gap: 10px;
   --border: 1px solid var(--border-color);
   --btn-padding: #{$button-top-bottom} #{$button-left-right};
   --text-color: transparent;
-  --text-color-transition: color 0.2s ease-in;
+  --text-color-transition: color #{$duration-base} #{$easing-standard};
 
   border-radius: $radius-3;
   background-color: var(--bg-color);
   border: var(--border);
   transition:
-    background-color 0.2s ease-in,
-    border-color 0.2s ease-in;
+    background-color $duration-base $easing-standard,
+    border-color $duration-base $easing-standard;
   padding: var(--btn-padding);
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   gap: $button-gap;
+  color: var(--text-color);
 
   &--primary {
     --bg-color: #{$primary-background};
@@ -186,8 +195,6 @@ $button-gap: 10px;
 
   &__icon,
   &__loader {
-    width: 20px;
-    height: 20px;
     color: var(--text-color);
     transition: var(--text-color-transition);
   }
@@ -198,6 +205,12 @@ $button-gap: 10px;
 
   &:has(.ui-button__loader) {
     pointer-events: none;
+  }
+
+  &:visited &__label,
+  &:visited &__icon,
+  &:visited &__loader {
+    color: var(--text-color);
   }
 
   &__label {
