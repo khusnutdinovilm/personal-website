@@ -1,1 +1,12 @@
-$breakpoint-desktop: 768px;
+@use "sass:map";
+
+$breakpoints: (
+  "xs": 0,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1400px,
+);
+
+$breakpoint-nav: "md";

@@ -2,7 +2,7 @@
   <component
     :is="tag"
     :class="btnClasses"
-    :to="tag === 'nuxt-link' ? to : undefined"
+    :to="to"
     :href="tag === 'a' ? href : undefined"
     :target="tag === 'a' ? (target ?? '_blank') : undefined"
     :rel="isBlankLink ? 'noopener noreferrer' : undefined"
@@ -36,6 +36,8 @@
 </template>
 
 <script setup lang="ts">
+import { NuxtLink } from "#components";
+
 import { UiIcon } from "../ui-icon";
 
 import type { IUiButtonEmits, IUiButtonProps } from "./types";
@@ -45,7 +47,7 @@ const emit = defineEmits<IUiButtonEmits>();
 
 const tag = computed(() => {
   if (props.disabled) return "button";
-  if (props.to) return "nuxt-link";
+  if (props.to) return NuxtLink;
   if (props.href) return "a";
   return "button";
 });

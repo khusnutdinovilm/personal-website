@@ -1,16 +1,22 @@
 <template>
   <div class="layout">
     <div class="layout__wrapper">
-      <!-- header -->
+      <SiteHeader />
 
-      <main>
-        <slot />
+      <main class="layout__main">
+        <div class="layout__page">
+          <slot />
+        </div>
+
+        <div id="header-menu-outlet"></div>
       </main>
-
-      <!-- footer -->
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { SiteHeader } from "~/widgets/site-header";
+</script>
 
 <style lang="scss">
 .layout {
@@ -19,15 +25,35 @@
   flex-direction: column;
   padding: $spacing-5;
 
-  @include desktop {
+  @include media-up("lg") {
     padding: 70px;
   }
 
   &__wrapper {
     flex: 1;
-    border: 1px solid $theme-stroke;
+    display: flex;
+    flex-direction: column;
+    border: $border-hairline;
     border-radius: $radius-3;
     background-color: $theme-background;
+    overflow: hidden;
+  }
+
+  &__page {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-6;
+    padding: $spacing-5;
+
+    & h1 {
+      @include heading-h1;
+      color: $theme-foreground;
+    }
+  }
+
+  &__main {
+    position: relative;
+    flex: 1;
   }
 }
 </style>
