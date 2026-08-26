@@ -10,12 +10,15 @@
 
         <div id="header-menu-outlet"></div>
       </main>
+
+      <SiteFooter />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { SiteHeader } from "~/widgets/site-header";
+import { SiteFooter } from "~/widgets/site-footer";
 </script>
 
 <style lang="scss">
