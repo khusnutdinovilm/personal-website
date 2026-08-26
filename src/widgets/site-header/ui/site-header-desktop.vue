@@ -34,6 +34,7 @@ import SiteNav from "./site-nav.vue";
 
   &__logo-container {
     flex: 0 55%;
+    max-width: 735px;
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
