@@ -1,13 +1,9 @@
-import type { RouteLocationRaw } from "vue-router";
-import type { ButtonTarget } from "../ui-button";
+import type { IActionableProps } from "~/shared/lib/use-actionable";
 
-export interface IUiMenuItemProps {
+export interface IUiMenuItemProps extends IActionableProps {
   label: string;
   icon?: string;
   selected?: boolean;
-  to?: RouteLocationRaw;
-  href?: string;
-  target?: ButtonTarget;
 }
 
 export interface IUiMenuItemEmits {
