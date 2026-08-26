@@ -42,21 +42,16 @@ import { SiteFooter } from "~/widgets/site-footer";
     overflow: hidden;
   }
 
-  &__page {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-6;
-    padding: $spacing-5;
-
-    & h1 {
-      @include heading-h1;
-      color: $theme-foreground;
-    }
-  }
-
   &__main {
     position: relative;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__page {
+    flex: 1;
+    display: flex;
   }
 }
 </style>
