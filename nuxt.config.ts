@@ -45,9 +45,12 @@ export default defineNuxtConfig({
   },
 
   icon: {
+    provider: "none",
     clientBundle: {
       scan: true,
       includeCustomCollections: true,
+      // иконки с динамическим именем (:icon из конфига) сканер не ловит — перечисляем явно
+      icons: ["ri:linkedin-fill", "ri:github-fill"],
     },
     customCollections: [
       {
