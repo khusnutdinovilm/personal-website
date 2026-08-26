@@ -39,7 +39,7 @@ const { rootClasses: textInputClasses, variant } = useTextControl(props, "ui-tex
 .ui-text-input {
   &__input {
     width: 100%;
-    max-height: 40px;
+    max-height: $size-7;
     border-radius: $radius-3;
     border: 1px solid var(--border-color);
     padding: $spacing-4;
