@@ -49,7 +49,10 @@
 
     &-tabs {
       display: flex;
-      border-bottom: $border-hairline;
+
+      @include media-up($breakpoint-nav) {
+        border-bottom: $border-hairline;
+      }
     }
   }
 }
