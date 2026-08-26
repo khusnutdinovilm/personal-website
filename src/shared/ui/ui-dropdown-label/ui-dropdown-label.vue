@@ -56,6 +56,10 @@ const onClick = (event: MouseEvent) => {
 
 <style lang="scss">
 .ui-dropdown-label {
+  --label-color: #{$theme-heading-foreground};
+  --icon-append-color: #{$theme-foreground};
+  --icon-prepend-color: #{$theme-heading-foreground};
+
   @include button-reset;
 
   width: 100%;
@@ -88,7 +92,7 @@ const onClick = (event: MouseEvent) => {
 
     &-text {
       @include body-md;
-      color: $slate-50;
+      color: var(--label-color);
     }
   }
 
@@ -96,11 +100,11 @@ const onClick = (event: MouseEvent) => {
     transition: transform $duration-slow $easing-standard;
 
     &--prepend {
-      color: $slate-50;
+      color: var(--icon-prepend-color);
     }
 
     &--append {
-      color: $theme-foreground;
+      color: var(--icon-append-color);
     }
   }
 }
