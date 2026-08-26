@@ -1,15 +1,5 @@
 <template>
-  <component
-    :is="tag"
-    :to="to"
-    :href="href"
-    :target="isExternal ? (target ?? '_blank') : undefined"
-    :rel="isBlankLink ? 'noopener noreferrer' : undefined"
-    :type="tag === 'button' ? 'button' : undefined"
-    class="ui-menu-item"
-    :class="menuItemClasses"
-    @click="clickMenuItem"
-  >
+  <component :is="tag" v-bind="actionableAttrs" :class="menuItemClasses" @click="clickMenuItem">
     <span class="ui-menu-item__wrapper">
       <span class="ui-menu-item__label">
         {{ label }}
@@ -21,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { NuxtLink } from "#components";
+import { useActionable } from "~/shared/lib/use-actionable";
 
 import { UiIcon } from "../ui-icon";
 
@@ -30,16 +20,12 @@ import type { IUiMenuItemEmits, IUiMenuItemProps } from "./types";
 const props = defineProps<IUiMenuItemProps>();
 const emit = defineEmits<IUiMenuItemEmits>();
 
-const tag = computed(() => {
-  if (props.to) return NuxtLink;
-  if (props.href) return "a";
-  return "button";
-});
+const { tag, actionableAttrs } = useActionable(props, "button");
 
-const isExternal = computed(() => tag.value === "a");
-const isBlankLink = computed(() => isExternal.value && (props.target ?? "_blank") === "_blank");
-
-const menuItemClasses = computed(() => ({ "ui-menu-item--selected": props.selected }));
+const menuItemClasses = computed(() => [
+  "ui-menu-item",
+  { "ui-menu-item--selected": props.selected },
+]);
 
 const clickMenuItem = (event: Event) => {
   emit("click", event);

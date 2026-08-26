@@ -26,3 +26,15 @@
     @content;
   }
 }
+
+@mixin hidden-up($name) {
+  @include media-up($name) {
+    display: none;
+  }
+}
+
+@mixin hidden-down($name) {
+  @include media-down($name) {
+    display: none;
+  }
+}

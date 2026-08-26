@@ -1,12 +1,8 @@
 <template>
   <component
     :is="tag"
+    v-bind="actionableAttrs"
     :class="btnClasses"
-    :to="to"
-    :href="tag === 'a' ? href : undefined"
-    :target="tag === 'a' ? (target ?? '_blank') : undefined"
-    :rel="isBlankLink ? 'noopener noreferrer' : undefined"
-    :disabled="tag === 'button' ? disabled : undefined"
     :aria-disabled="disabled || undefined"
     :aria-busy="loading || undefined"
     @click="clickBtn"
@@ -36,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { NuxtLink } from "#components";
+import { useActionable } from "~/shared/lib/use-actionable";
 
 import { UiIcon } from "../ui-icon";
 
@@ -45,14 +41,7 @@ import type { IUiButtonEmits, IUiButtonProps } from "./types";
 const { variant = "default", ...props } = defineProps<IUiButtonProps>();
 const emit = defineEmits<IUiButtonEmits>();
 
-const tag = computed(() => {
-  if (props.disabled) return "button";
-  if (props.to) return NuxtLink;
-  if (props.href) return "a";
-  return "button";
-});
-
-const isBlankLink = computed(() => tag.value === "a" && (props.target ?? "_blank") === "_blank");
+const { tag, actionableAttrs } = useActionable(props, "button");
 
 const btnClasses = computed(() => [
   "ui-button",

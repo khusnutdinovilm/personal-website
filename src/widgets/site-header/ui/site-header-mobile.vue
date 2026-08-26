@@ -15,17 +15,19 @@
       </button>
     </div>
 
-    <Teleport defer to="#header-menu-outlet">
-      <Transition name="menu">
-        <div v-show="open" id="header-menu" class="site-header-mobile__menu-dropdown">
-          <div class="site-header-mobile__navigate-caption"># navigate:</div>
+    <ClientOnly>
+      <Teleport to="#header-menu-outlet">
+        <Transition name="menu">
+          <div v-show="open" id="header-menu" class="site-header-mobile__menu-dropdown">
+            <div class="site-header-mobile__navigate-caption"># navigate:</div>
 
-          <nav class="site-header-mobile__navigate">
-            <SiteNav :items="ALL_NAV_ITEMS" item-class="site-header-mobile__navigate-menu-item" />
-          </nav>
-        </div>
-      </Transition>
-    </Teleport>
+            <nav class="site-header-mobile__navigate">
+              <SiteNav :items="ALL_NAV_ITEMS" item-class="site-header-mobile__navigate-menu-item" />
+            </nav>
+          </div>
+        </Transition>
+      </Teleport>
+    </ClientOnly>
   </header>
 </template>
 
@@ -105,16 +107,21 @@ onBeforeUnmount(() => (document.body.style.overflow = ""));
   }
 }
 
+// TODO: сделать позже — убрать «моргание» 1px-границ пунктов при открытии/закрытии меню.
+// Что уже пробовали (не помогло): translateZ(0), will-change: transform, translate3d в кадре,
+// анимация только по opacity. В покое меню стабильно (0 мутаций, границы на целых px),
+// артефакт возникает во время перехода — похоже на сабпиксельный композитинг оверлея на GPU.
+// Куда копать: выравнивание границ на целые device-px (учесть devicePixelRatio и дробную
+// позицию из-за padding/border-radius карточки-обёртки); overflow-y: auto держит элемент
+// scroll-контейнером даже когда контент влезает; как вариант — анимировать без композитинг-слоя
+// или отказаться от анимации оверлея.
 .menu-enter-active,
 .menu-leave-active {
-  transition:
-    transform $duration-base $easing-standard,
-    opacity $duration-base $easing-standard;
+  transition: opacity $duration-base $easing-standard;
 }
 
 .menu-enter-from,
 .menu-leave-to {
   opacity: 0;
-  transform: translateY(-$spacing-5);
 }
 </style>
