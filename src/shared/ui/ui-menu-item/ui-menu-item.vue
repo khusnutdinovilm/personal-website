@@ -1,5 +1,15 @@
 <template>
-  <button type="button" class="ui-menu-item" :class="{ 'ui-menu-item--selected': selected }">
+  <component
+    :is="tag"
+    :to="to"
+    :href="href"
+    :target="isExternal ? (target ?? '_blank') : undefined"
+    :rel="isBlankLink ? 'noopener noreferrer' : undefined"
+    :type="tag === 'button' ? 'button' : undefined"
+    class="ui-menu-item"
+    :class="menuItemClasses"
+    @click="clickMenuItem"
+  >
     <span class="ui-menu-item__wrapper">
       <span class="ui-menu-item__label">
         {{ label }}
@@ -7,15 +17,33 @@
 
       <UiIcon v-if="icon" :name="icon" size="lg" class="ui-menu-item__icon" />
     </span>
-  </button>
+  </component>
 </template>
 
 <script setup lang="ts">
+import { NuxtLink } from "#components";
+
 import { UiIcon } from "../ui-icon";
 
-import type { IUiMenuItemProps } from "./types";
+import type { IUiMenuItemEmits, IUiMenuItemProps } from "./types";
 
-defineProps<IUiMenuItemProps>();
+const props = defineProps<IUiMenuItemProps>();
+const emit = defineEmits<IUiMenuItemEmits>();
+
+const tag = computed(() => {
+  if (props.to) return NuxtLink;
+  if (props.href) return "a";
+  return "button";
+});
+
+const isExternal = computed(() => tag.value === "a");
+const isBlankLink = computed(() => isExternal.value && (props.target ?? "_blank") === "_blank");
+
+const menuItemClasses = computed(() => ({ "ui-menu-item--selected": props.selected }));
+
+const clickMenuItem = (event: Event) => {
+  emit("click", event);
+};
 </script>
 
 <style lang="scss">
@@ -27,11 +55,35 @@ defineProps<IUiMenuItemProps>();
   --text-color: #{$theme-foreground};
   --color-transition: color $duration-base $easing-standard;
 
+  @mixin menu-item-active {
+    --text-color: #{$theme-heading-foreground};
+
+    .ui-menu-item__wrapper::before,
+    .ui-menu-item__wrapper::after {
+      width: 50%;
+    }
+    .ui-menu-item__wrapper::before {
+      transform: translateX(-100%);
+    }
+  }
+
+  &--selected {
+    @include menu-item-active();
+  }
+
+  &.router-link-exact-active {
+    @include menu-item-active();
+  }
+
+  &:hover {
+    --text-color: #{$theme-heading-foreground};
+  }
+
   & &__wrapper::before,
   & &__wrapper::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: var(--menu-item-underline-offset, 0);
     width: 0;
     left: 50%;
     height: $underline-height;
@@ -39,29 +91,18 @@ defineProps<IUiMenuItemProps>();
     transition: all $duration-slow $easing-standard;
   }
 
-  &--selected &__wrapper::before,
-  &--selected &__wrapper::after {
-    width: 50%;
-  }
-
-  &--selected &__wrapper::before {
-    transform: translateX(-100%);
-  }
-
-  &--selected,
-  &:hover {
-    --text-color: #{$theme-heading-foreground};
-  }
-
   &__wrapper {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: center;
     gap: $spacing-3;
-    padding: $spacing-5 $spacing-7;
+    padding: $spacing-4 $spacing-6;
     position: relative;
     cursor: pointer;
+
+    @include media-up($breakpoint-nav) {
+      padding: $spacing-5 $spacing-7;
+    }
   }
 
   &__label {
