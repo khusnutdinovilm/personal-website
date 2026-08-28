@@ -3,8 +3,9 @@ import fsd from "@feature-sliced/steiger-plugin";
 
 export default defineConfig([
   ...fsd.configs.recommended,
+  { rules: { "fsd/insignificant-slice": "off" } },
   {
-    files: ["./src/shared/**"],
-    rules: {},
+    files: ["./src/shared/assets/**"],
+    rules: { "fsd/public-api": "off", "fsd/segments-by-purpose": "off" },
   },
 ]);
