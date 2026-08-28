@@ -3,5 +3,5 @@
 </template>
 
 <script setup lang="ts">
-import { AboutPage } from "~/pages/about-page";
+import { AboutPage } from "~/pages/about";
 </script>
