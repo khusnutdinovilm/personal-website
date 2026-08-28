@@ -26,6 +26,8 @@ const model = defineModel<boolean>({ required: true });
 .ui-checkbox {
   --border-color: #{$slate-500};
   --bg-color: #{$theme-backdrop};
+  --checkbox-label-gap: 0;
+  --checkbox-label-padding: 0;
 
   padding-right: $spacing-4;
   padding-left: $spacing-4;
@@ -83,7 +85,11 @@ const model = defineModel<boolean>({ required: true });
   }
 
   &__label {
-    display: block;
+    padding: var(--checkbox-label-padding);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: var(--checkbox-label-gap);
   }
 }
 </style>
