@@ -1,5 +1,8 @@
 <template>
   <div class="ui-sidebar-layout">
+    <div v-if="pageName" class="ui-sidebar-layout__page-name">
+      {{ pageName }}
+    </div>
     <aside v-if="$slots['aside']" class="ui-sidebar-layout__aside">
       <slot name="aside" />
     </aside>
@@ -16,7 +19,11 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps<{
+  pageName?: string;
+}>();
+</script>
 
 <style lang="scss">
 .ui-sidebar-layout {
@@ -29,6 +36,22 @@
   @include media-up($breakpoint-nav) {
     flex-flow: row nowrap;
     align-items: stretch;
+  }
+
+  &__page-name {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: $spacing-6;
+
+    @include body-sm;
+    color: $theme-heading-foreground;
+
+    @include media-up($breakpoint-nav) {
+      display: none;
+    }
   }
 
   &__aside {
@@ -49,10 +72,9 @@
 
     &-tabs {
       display: flex;
+      border-bottom: $border-hairline;
 
-      @include media-up($breakpoint-nav) {
-        border-bottom: $border-hairline;
-      }
+      @include hidden-down($breakpoint-nav);
     }
   }
 }
