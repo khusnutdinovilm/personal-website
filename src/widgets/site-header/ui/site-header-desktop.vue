@@ -33,12 +33,11 @@ import SiteNav from "./site-nav.vue";
   }
 
   &__logo-container {
-    flex: 0 55%;
-    max-width: 735px;
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
     justify-content: space-between;
+    gap: $spacing-10 * 2;
   }
 
   &__navigate {

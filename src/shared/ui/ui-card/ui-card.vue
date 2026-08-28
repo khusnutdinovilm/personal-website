@@ -31,6 +31,7 @@ defineProps<IUiCardProps>();
     overflow: hidden;
     border-top-left-radius: $radius-4;
     border-top-right-radius: $radius-4;
+    border: 1px solid $slate-800;
   }
 
   &__image {

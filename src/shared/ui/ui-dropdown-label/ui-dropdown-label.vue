@@ -42,7 +42,7 @@ const emit = defineEmits<{
 const dropdownLabelClasses = computed(() => [
   "ui-dropdown-label",
   {
-    "ui-dropdown-label--open": props.open && props.expandable,
+    "ui-dropdown-label--open": props.open,
     "ui-dropdown-label--expandable": props.expandable,
   },
 ]);
@@ -56,6 +56,7 @@ const onClick = (event: MouseEvent) => {
 
 <style lang="scss">
 .ui-dropdown-label {
+  --bg-color: transparent;
   --label-color: #{$theme-heading-foreground};
   --icon-append-color: #{$theme-foreground};
   --icon-prepend-color: #{$theme-heading-foreground};
@@ -64,6 +65,7 @@ const onClick = (event: MouseEvent) => {
 
   width: 100%;
   padding: $spacing-4 $spacing-6;
+  background-color: var(--bg-color);
   user-select: none;
 
   &--open &__icon--prepend {
@@ -93,6 +95,9 @@ const onClick = (event: MouseEvent) => {
     &-text {
       @include body-md;
       color: var(--label-color);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 
