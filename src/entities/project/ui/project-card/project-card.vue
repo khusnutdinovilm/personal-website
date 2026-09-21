@@ -4,7 +4,11 @@
       <slot name="heading" />
     </div>
 
-    <ui-card :src="project.imgSrc" :alt="`project-image-${project.name}`" class="project-card__card">
+    <ui-card
+      :src="project.imgSrc"
+      :alt="`project-image-${project.name}`"
+      class="project-card__card"
+    >
       <template #icon-box>
         <ui-icon-box
           v-for="technology in technologies"

@@ -22,7 +22,10 @@
             <div class="site-header-mobile__navigate-caption"># navigate:</div>
 
             <nav class="site-header-mobile__navigate">
-              <site-nav :items="ALL_NAV_ITEMS" item-class="site-header-mobile__navigate-menu-item" />
+              <site-nav
+                :items="ALL_NAV_ITEMS"
+                item-class="site-header-mobile__navigate-menu-item"
+              />
             </nav>
           </div>
         </Transition>
