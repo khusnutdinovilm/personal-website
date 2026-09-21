@@ -1,5 +1,5 @@
 <template>
-  <UiTextField
+  <ui-text-field
     :id="id"
     :label="label"
     :variant="variant"
@@ -15,8 +15,8 @@
       :disabled="disabled"
     />
 
-    <UiIcon v-if="icon" :name="icon" class="ui-text-input__icon" />
-  </UiTextField>
+    <ui-icon v-if="icon" :name="icon" class="ui-text-input__icon" />
+  </ui-text-field>
 </template>
 
 <script setup lang="ts">

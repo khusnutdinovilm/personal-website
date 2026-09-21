@@ -1,5 +1,5 @@
 <template>
-  <UiMenuItem
+  <ui-menu-item
     v-for="{ name, label } in items"
     :key="name"
     :label="label"

@@ -7,7 +7,7 @@
 
       <nav class="site-footer__social" aria-label="Мои соцсети">
         <div class="site-footer__social-icons">
-          <UiIconLink
+          <ui-icon-link
             v-for="link in SOCIAL_LINKS"
             :key="link.href"
             :label="link.label"
@@ -17,7 +17,7 @@
           />
         </div>
 
-        <UiMenuItem
+        <ui-menu-item
           :label="GITHUB_PROFILE.label"
           :icon="GITHUB_PROFILE.icon"
           :href="GITHUB_PROFILE.href"

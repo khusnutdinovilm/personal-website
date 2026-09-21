@@ -1,5 +1,5 @@
 <template>
-  <UiTextField
+  <ui-text-field
     :id="id"
     :label="label"
     :variant="variant"
@@ -9,8 +9,8 @@
   >
     <textarea :id="id" v-model="model" class="ui-textarea__input" :disabled="disabled"></textarea>
 
-    <UiIcon v-if="icon" :name="icon" class="ui-textarea__icon" />
-  </UiTextField>
+    <ui-icon v-if="icon" :name="icon" class="ui-textarea__icon" />
+  </ui-text-field>
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,6 @@
 <template>
   <div class="ui-icon-box" :style="iconStyles">
-    <UiIcon :name="iconName" size="md" class="ui-icon-box__icon" />
+    <ui-icon :name="iconName" size="md" class="ui-icon-box__icon" />
   </div>
 </template>
 

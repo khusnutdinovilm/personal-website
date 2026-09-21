@@ -1,7 +1,7 @@
 <template>
   <header class="site-header-mobile">
     <div class="site-header-mobile__wrapper">
-      <SiteLogo />
+      <site-logo />
 
       <button
         type="button"
@@ -11,7 +11,7 @@
         class="site-header-mobile__toggle-menu"
         @click="open = !open"
       >
-        <UiIcon :name="iconName" size="lg" />
+        <ui-icon :name="iconName" size="lg" />
       </button>
     </div>
 
@@ -22,7 +22,7 @@
             <div class="site-header-mobile__navigate-caption"># navigate:</div>
 
             <nav class="site-header-mobile__navigate">
-              <SiteNav :items="ALL_NAV_ITEMS" item-class="site-header-mobile__navigate-menu-item" />
+              <site-nav :items="ALL_NAV_ITEMS" item-class="site-header-mobile__navigate-menu-item" />
             </nav>
           </div>
         </Transition>

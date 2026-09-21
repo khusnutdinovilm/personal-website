@@ -1,7 +1,7 @@
 <template>
   <article class="ui-card">
     <header class="ui-card__header">
-      <UiImage :src="src" :alt="alt" class="ui-card__image" object-fit="cover" />
+      <ui-image :src="src" :alt="alt" class="ui-card__image" object-fit="cover" />
 
       <div v-if="$slots['icon-box']" class="ui-card__icon-box">
         <slot name="icon-box" />

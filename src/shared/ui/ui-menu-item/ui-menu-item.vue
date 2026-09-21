@@ -5,7 +5,7 @@
         {{ label }}
       </span>
 
-      <UiIcon v-if="icon" :name="icon" size="lg" class="ui-menu-item__icon" />
+      <ui-icon v-if="icon" :name="icon" size="lg" class="ui-menu-item__icon" />
     </span>
   </component>
 </template>

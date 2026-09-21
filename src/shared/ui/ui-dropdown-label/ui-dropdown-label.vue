@@ -7,7 +7,7 @@
   >
     <span class="ui-dropdown-label__wrapper">
       <span class="ui-dropdown-label__label">
-        <UiIcon
+        <ui-icon
           v-if="iconPrepend"
           :name="iconPrepend"
           size="sm"
@@ -19,7 +19,7 @@
         </span>
       </span>
 
-      <UiIcon
+      <ui-icon
         v-if="iconAppend"
         :name="iconAppend"
         size="sm"

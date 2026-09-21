@@ -1,9 +1,9 @@
 <template>
-  <UiAccordion :active-item-key="1" class="technology-filter">
-    <UiAccordionItem :item-key="1" class="technology-filter__item">
-      <UiAccordionHeader>
+  <ui-accordion :active-item-key="1" class="technology-filter">
+    <ui-accordion-item :item-key="1" class="technology-filter__item">
+      <ui-accordion-header>
         <template #default="{ open, toggle: toggleLabel }">
-          <UiDropdownLabel
+          <ui-dropdown-label
             label="projects"
             icon-prepend="ri:arrow-drop-right-fill"
             :open="open"
@@ -11,10 +11,10 @@
             @click="toggleLabel"
           />
         </template>
-      </UiAccordionHeader>
+      </ui-accordion-header>
 
-      <UiAccordionBody content-class="technology-filter__body">
-        <UiCheckbox
+      <ui-accordion-body content-class="technology-filter__body">
+        <ui-checkbox
           v-for="tech in technologies"
           :id="`tech-${tech.id}`"
           :key="tech.id"
@@ -22,15 +22,15 @@
           :model-value="isSelected(tech.id)"
           @update:model-value="toggle(tech.id)"
         >
-          <UiIcon :name="tech.icon" size="lg" class="technology-filter__row-icon" />
+          <ui-icon :name="tech.icon" size="lg" class="technology-filter__row-icon" />
 
           <span class="technology-filter__row-label">
             {{ tech.label }}
           </span>
-        </UiCheckbox>
-      </UiAccordionBody>
-    </UiAccordionItem>
-  </UiAccordion>
+        </ui-checkbox>
+      </ui-accordion-body>
+    </ui-accordion-item>
+  </ui-accordion>
 </template>
 
 <script setup lang="ts">

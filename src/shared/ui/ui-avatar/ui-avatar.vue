@@ -1,6 +1,6 @@
 <template>
   <div :class="avatarClasses">
-    <UiImage :src="src" :alt="alt" class="ui-avatar__image" object-fit="cover" />
+    <ui-image :src="src" :alt="alt" class="ui-avatar__image" object-fit="cover" />
   </div>
 </template>
 

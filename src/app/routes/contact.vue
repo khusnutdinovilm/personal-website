@@ -1,5 +1,5 @@
 <template>
-  <ContactPage />
+  <contact-page />
 </template>
 
 <script setup lang="ts">

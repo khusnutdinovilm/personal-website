@@ -7,10 +7,10 @@
     :aria-busy="loading || undefined"
     @click="clickBtn"
   >
-    <UiIcon v-if="loading" name="ri:loader-line" size="md" class="ui-button__loader" />
+    <ui-icon v-if="loading" name="ri:loader-line" size="md" class="ui-button__loader" />
     <slot v-else-if="$slots['default']" />
     <template v-else-if="btnLabel">
-      <UiIcon
+      <ui-icon
         v-if="iconPrepend"
         :name="iconPrepend"
         size="md"
@@ -21,7 +21,7 @@
         {{ btnLabel }}
       </div>
 
-      <UiIcon
+      <ui-icon
         v-if="iconAppend"
         :name="iconAppend"
         size="md"

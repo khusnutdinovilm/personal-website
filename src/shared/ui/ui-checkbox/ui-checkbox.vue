@@ -3,7 +3,7 @@
     <input :id="id" v-model="model" :name="name" type="checkbox" class="ui-checkbox__real" />
 
     <span class="ui-checkbox__fake">
-      <UiIcon v-if="model" name="custom:mark-icon" />
+      <ui-icon v-if="model" name="custom:mark-icon" />
     </span>
 
     <span class="ui-checkbox__label">

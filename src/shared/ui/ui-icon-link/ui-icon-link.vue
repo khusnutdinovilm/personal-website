@@ -1,6 +1,6 @@
 <template>
   <component :is="tag" v-bind="actionableAttrs" :aria-label="label" class="ui-icon-link">
-    <UiIcon :name="icon" :size="size" />
+    <ui-icon :name="icon" :size="size" />
   </component>
 </template>
 
