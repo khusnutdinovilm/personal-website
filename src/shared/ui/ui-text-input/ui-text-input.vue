@@ -51,6 +51,7 @@ const { rootClasses: textInputClasses, variant } = useTextControl(props, "ui-tex
       background-color 0.2s ease-in;
 
     @include body-md;
+
     color: $theme-foreground;
 
     &:disabled {

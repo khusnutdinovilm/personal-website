@@ -94,6 +94,7 @@ const onClick = (event: MouseEvent) => {
 
     &-text {
       @include body-md;
+
       color: var(--label-color);
       text-overflow: ellipsis;
       overflow: hidden;

@@ -24,8 +24,3 @@ const toggle = (key: AccordionItemKey) => {
 
 provide(ACCORDION_KEY, { isOpen, toggle });
 </script>
-
-<style lang="scss">
-.ui-accordion {
-}
-</style>

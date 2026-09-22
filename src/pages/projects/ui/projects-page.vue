@@ -54,7 +54,6 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
 
   &__list {
     padding: $spacing-6;
-
     display: flex;
     flex-direction: column;
     gap: $spacing-6;
@@ -62,14 +61,12 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
     @include media-up($breakpoint-nav) {
       padding: $spacing-10;
       padding-bottom: 0;
-
       flex-flow: row wrap;
       gap: $spacing-8;
     }
 
     &-item {
       flex: 0 calc(33% - $spacing-6);
-
       display: flex;
       flex-direction: column;
       gap: $spacing-5;
@@ -81,11 +78,13 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
 
       &-num {
         @include body-md;
+
         color: $indigo-500;
       }
 
       &-name {
         @include body-md;
+
         color: $theme-foreground;
       }
     }

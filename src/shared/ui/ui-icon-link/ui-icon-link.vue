@@ -20,7 +20,6 @@ const { tag, actionableAttrs } = useActionable(props, "button");
   align-items: center;
   padding: $spacing-5;
   color: $slate-500;
-
   transition: color $duration-base $easing-standard;
 
   &:hover {

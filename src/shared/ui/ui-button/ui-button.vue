@@ -159,7 +159,6 @@ $button-gap: 10px;
     --bg-color: transparent;
     --border: none;
     --border-color: transparent;
-
     --text-color: #{$theme-link-foreground};
 
     &:hover {
@@ -206,6 +205,7 @@ $button-gap: 10px;
 
   &__label {
     @include body-sm;
+
     color: var(--text-color);
     transition: var(--text-color-transition);
   }
@@ -215,6 +215,7 @@ $button-gap: 10px;
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

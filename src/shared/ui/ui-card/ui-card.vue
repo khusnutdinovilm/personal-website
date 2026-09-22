@@ -45,7 +45,6 @@ defineProps<IUiCardProps>();
     border-bottom-right-radius: $radius-4;
     border-top: none;
     padding: $spacing-7;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;

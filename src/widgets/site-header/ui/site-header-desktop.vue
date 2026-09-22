@@ -25,7 +25,6 @@ import SiteNav from "./site-nav.vue";
 .site-header-desktop {
   &__wrapper {
     border-bottom: $border-hairline;
-
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;

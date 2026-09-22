@@ -73,6 +73,7 @@ defineProps<{
 
   &__description {
     @include body-lg;
+
     color: $theme-foreground;
   }
 

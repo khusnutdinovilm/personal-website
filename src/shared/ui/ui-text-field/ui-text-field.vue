@@ -75,6 +75,7 @@ const textFieldClasses = computed(() => [
 
   &__label {
     @include body-sm;
+
     color: $theme-foreground;
   }
 
@@ -85,6 +86,7 @@ const textFieldClasses = computed(() => [
 
   &__hint-text {
     @include body-sm;
+
     color: var(--hint-color);
   }
 }

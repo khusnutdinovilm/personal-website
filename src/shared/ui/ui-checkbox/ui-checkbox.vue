@@ -68,7 +68,6 @@ const model = defineModel<boolean>({ required: true });
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     border-radius: $radius-1;
     padding: $spacing-2;
     border: 1px solid var(--border-color);

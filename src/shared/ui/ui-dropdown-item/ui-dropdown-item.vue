@@ -82,6 +82,7 @@ const onClick = (event: MouseEvent) => {
 
     &-text {
       @include body-md;
+
       color: $theme-heading-foreground;
     }
   }

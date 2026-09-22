@@ -43,10 +43,10 @@ defineProps<{
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
-
     padding: $spacing-6;
 
     @include body-sm;
+
     color: $theme-heading-foreground;
 
     @include media-up($breakpoint-nav) {

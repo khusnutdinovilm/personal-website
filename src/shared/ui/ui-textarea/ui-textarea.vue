@@ -46,6 +46,7 @@ const { variant, rootClasses: textareaClasses } = useTextControl(props, "ui-text
       background-color 0.2s ease-in;
 
     @include body-md;
+
     color: $theme-foreground;
 
     &:disabled {

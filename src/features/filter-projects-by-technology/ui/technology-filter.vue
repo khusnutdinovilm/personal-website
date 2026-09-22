@@ -83,6 +83,7 @@ const { technologies, isSelected, toggle } = useProjectFilter();
 
     &-label {
       @include body-md;
+
       color: $theme-heading-foreground;
     }
   }

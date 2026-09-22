@@ -101,6 +101,7 @@ onBeforeUnmount(() => (document.body.style.overflow = ""));
       border-bottom: $border-hairline;
 
       @include body-md;
+
       color: $theme-foreground;
     }
 

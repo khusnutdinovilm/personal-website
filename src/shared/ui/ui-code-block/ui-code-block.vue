@@ -65,7 +65,6 @@ const codeBlockStyles = computed(() => ({ "--cb-number-gap": `${numberGap}px` })
     .line::before {
       counter-increment: step;
       content: counter(step);
-
       display: inline-block;
       width: 1.5rem;
       margin-right: var(--cb-number-gap);
