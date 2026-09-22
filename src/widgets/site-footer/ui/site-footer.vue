@@ -7,7 +7,7 @@
 
       <nav class="site-footer__social" aria-label="Мои соцсети">
         <div class="site-footer__social-icons">
-          <UiIconLink
+          <ui-icon-link
             v-for="link in SOCIAL_LINKS"
             :key="link.href"
             :label="link.label"
@@ -17,7 +17,7 @@
           />
         </div>
 
-        <UiMenuItem
+        <ui-menu-item
           :label="GITHUB_PROFILE.label"
           :icon="GITHUB_PROFILE.icon"
           :href="GITHUB_PROFILE.href"
@@ -39,7 +39,6 @@ import { GITHUB_PROFILE, SOCIAL_LINKS } from "../model/social";
 .site-footer {
   &__wrapper {
     border-top: $border-hairline;
-
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
@@ -49,7 +48,6 @@ import { GITHUB_PROFILE, SOCIAL_LINKS } from "../model/social";
     user-select: none;
     border-right: $border-hairline;
     padding: $spacing-5 $spacing-6;
-
     flex: 1;
 
     @include media-up($breakpoint-nav) {
@@ -58,6 +56,7 @@ import { GITHUB_PROFILE, SOCIAL_LINKS } from "../model/social";
 
     &-caption {
       @include body-md;
+
       color: $theme-foreground;
     }
   }
@@ -81,6 +80,7 @@ import { GITHUB_PROFILE, SOCIAL_LINKS } from "../model/social";
 
       &:last-child {
         border-right: none;
+
         @include hidden-up($breakpoint-nav);
       }
     }

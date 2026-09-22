@@ -18,6 +18,7 @@ import { homePageParams, SITE_NAME } from "../model/nav";
 
   &__text {
     @include body-md;
+
     color: $theme-foreground;
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <AboutPage />
+  <about-page />
 </template>
 
 <script setup lang="ts">

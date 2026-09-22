@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <div class="layout__wrapper">
-      <SiteHeader />
+      <site-header />
 
       <main class="layout__main">
         <div class="layout__page">
@@ -11,7 +11,7 @@
         <div id="header-menu-outlet"></div>
       </main>
 
-      <SiteFooter />
+      <site-footer />
     </div>
   </div>
 </template>

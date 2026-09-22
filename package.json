@@ -8,7 +8,16 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint:style": "stylelint \"src/**/*.{scss,vue}\"",
+    "lint:style:fix": "stylelint \"src/**/*.{scss,vue}\" --fix",
+    "lint:fsd": "steiger ./src",
+    "lint:fsd:watch": "steiger ./src --watch",
+    "lint:all": "npm run lint && npm run lint:style && npm run lint:fsd && npm run format:check"
   },
   "dependencies": {
     "eslint": "^10.8.1",

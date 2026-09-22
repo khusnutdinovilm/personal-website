@@ -2,14 +2,14 @@
   <header class="site-header-desktop">
     <div class="site-header-desktop__wrapper">
       <div class="site-header-desktop__logo-container">
-        <SiteLogo />
+        <site-logo />
 
         <div class="site-header-desktop__navigate">
-          <SiteNav :items="NAV_ITEMS" item-class="site-header-desktop__menu-item" />
+          <site-nav :items="NAV_ITEMS" item-class="site-header-desktop__menu-item" />
         </div>
       </div>
 
-      <SiteNav :items="CONTACT_ITEMS" item-class="site-header-desktop__menu-item" />
+      <site-nav :items="CONTACT_ITEMS" item-class="site-header-desktop__menu-item" />
     </div>
   </header>
 </template>
@@ -25,7 +25,6 @@ import SiteNav from "./site-nav.vue";
 .site-header-desktop {
   &__wrapper {
     border-bottom: $border-hairline;
-
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;

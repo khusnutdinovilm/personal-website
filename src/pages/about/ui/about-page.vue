@@ -1,11 +1,11 @@
 <template>
-  <UiSidebarLayout class="about-page">
+  <ui-sidebar-layout class="about-page">
     <template #aside> aside </template>
 
     <template #tabs> tabs </template>
 
     <template #content> content </template>
-  </UiSidebarLayout>
+  </ui-sidebar-layout>
 </template>
 
 <script setup lang="ts">

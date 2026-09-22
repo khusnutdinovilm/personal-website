@@ -5,7 +5,7 @@
         {{ label }}
       </span>
 
-      <UiIcon v-if="icon" :name="icon" size="lg" class="ui-menu-item__icon" />
+      <ui-icon v-if="icon" :name="icon" size="lg" class="ui-menu-item__icon" />
     </span>
   </component>
 </template>
@@ -48,17 +48,18 @@ const clickMenuItem = (event: Event) => {
     .ui-menu-item__wrapper::after {
       width: 50%;
     }
+
     .ui-menu-item__wrapper::before {
       transform: translateX(-100%);
     }
   }
 
   &--selected {
-    @include menu-item-active();
+    @include menu-item-active;
   }
 
   &.router-link-exact-active {
-    @include menu-item-active();
+    @include menu-item-active;
   }
 
   &:hover {
@@ -93,6 +94,7 @@ const clickMenuItem = (event: Event) => {
 
   &__label {
     @include body-md;
+
     color: var(--text-color);
     transition: var(--color-transition);
   }

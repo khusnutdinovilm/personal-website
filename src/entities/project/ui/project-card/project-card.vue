@@ -4,9 +4,13 @@
       <slot name="heading" />
     </div>
 
-    <UiCard :src="project.imgSrc" :alt="`project-image-${project.name}`" class="project-card__card">
+    <ui-card
+      :src="project.imgSrc"
+      :alt="`project-image-${project.name}`"
+      class="project-card__card"
+    >
       <template #icon-box>
-        <UiIconBox
+        <ui-icon-box
           v-for="technology in technologies"
           :key="technology.id"
           :icon-name="technology.icon"
@@ -21,9 +25,9 @@
           {{ project.description }}
         </p>
 
-        <UiButton btn-label="view-project" :href="project.projectUrl" />
+        <ui-button btn-label="view-project" :href="project.projectUrl" />
       </template>
-    </UiCard>
+    </ui-card>
   </div>
 </template>
 
@@ -69,6 +73,7 @@ defineProps<{
 
   &__description {
     @include body-lg;
+
     color: $theme-foreground;
   }
 

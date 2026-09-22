@@ -1,6 +1,6 @@
 <template>
   <component :is="tag" v-bind="actionableAttrs" :aria-label="label" class="ui-icon-link">
-    <UiIcon :name="icon" :size="size" />
+    <ui-icon :name="icon" :size="size" />
   </component>
 </template>
 
@@ -20,7 +20,6 @@ const { tag, actionableAttrs } = useActionable(props, "button");
   align-items: center;
   padding: $spacing-5;
   color: $slate-500;
-
   transition: color $duration-base $easing-standard;
 
   &:hover {

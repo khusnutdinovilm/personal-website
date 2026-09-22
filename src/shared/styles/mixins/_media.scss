@@ -1,11 +1,11 @@
 @use "sass:map";
-
 @use "../tokens/breakpoints" as *;
 
 @function breakpoint($name) {
   @if not map.has-key($breakpoints, $name) {
     @error "Брейкпоинт '#{$name}' не найден в $breakpoints.";
   }
+
   @return map.get($breakpoints, $name);
 }
 

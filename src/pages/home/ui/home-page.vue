@@ -1,7 +1,7 @@
 <template>
-  <UiSidebarLayout class="home-page">
+  <ui-sidebar-layout class="home-page">
     <template #content> content </template>
-  </UiSidebarLayout>
+  </ui-sidebar-layout>
 </template>
 
 <script setup lang="ts">

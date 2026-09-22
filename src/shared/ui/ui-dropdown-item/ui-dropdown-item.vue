@@ -1,7 +1,7 @@
 <template>
   <button type="button" :class="dropdownItemClasses" :style="dropdownItemStyles" @click="onClick">
     <span class="ui-dropdown-item__wrapper">
-      <UiIcon
+      <ui-icon
         v-if="expandable"
         name="ri:arrow-drop-right-line"
         size="sm"
@@ -9,7 +9,7 @@
       />
 
       <span class="ui-dropdown-item__label">
-        <UiIcon v-if="icon" :name="icon" size="sm" class="ui-dropdown-item__label-icon" />
+        <ui-icon v-if="icon" :name="icon" size="sm" class="ui-dropdown-item__label-icon" />
 
         <span class="ui-dropdown-item__label-text">
           {{ label }}
@@ -82,6 +82,7 @@ const onClick = (event: MouseEvent) => {
 
     &-text {
       @include body-md;
+
       color: $theme-heading-foreground;
     }
   }

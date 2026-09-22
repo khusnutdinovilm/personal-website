@@ -1,11 +1,11 @@
 <template>
-  <UiSidebarLayout class="projects-page" page-name="_projects">
+  <ui-sidebar-layout class="projects-page" page-name="_projects">
     <template #aside>
-      <TechnologyFilter />
+      <technology-filter />
     </template>
 
     <template #tabs>
-      <UiDropdownLabel
+      <ui-dropdown-label
         :label="selectedLabel"
         icon-append="ri:close-fill"
         class="projects-page__selected-technologies"
@@ -15,7 +15,7 @@
 
     <template #content>
       <div class="projects-page__list">
-        <ProjectCard
+        <project-card
           v-for="({ project, technologies }, index) in projectsWithTechnologies"
           :key="project.id"
           :project="project"
@@ -26,10 +26,10 @@
             <span class="projects-page__list-item-num"> Project {{ index + 1 }} </span>
             <span class="projects-page__list-item-name"> // {{ project.name }} </span>
           </template>
-        </ProjectCard>
+        </project-card>
       </div>
     </template>
-  </UiSidebarLayout>
+  </ui-sidebar-layout>
 </template>
 
 <script setup lang="ts">
@@ -54,7 +54,6 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
 
   &__list {
     padding: $spacing-6;
-
     display: flex;
     flex-direction: column;
     gap: $spacing-6;
@@ -62,14 +61,12 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
     @include media-up($breakpoint-nav) {
       padding: $spacing-10;
       padding-bottom: 0;
-
       flex-flow: row wrap;
       gap: $spacing-8;
     }
 
     &-item {
       flex: 0 calc(33% - $spacing-6);
-
       display: flex;
       flex-direction: column;
       gap: $spacing-5;
@@ -81,11 +78,13 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
 
       &-num {
         @include body-md;
+
         color: $indigo-500;
       }
 
       &-name {
         @include body-md;
+
         color: $theme-foreground;
       }
     }

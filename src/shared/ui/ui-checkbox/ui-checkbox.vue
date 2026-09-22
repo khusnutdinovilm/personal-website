@@ -3,7 +3,7 @@
     <input :id="id" v-model="model" :name="name" type="checkbox" class="ui-checkbox__real" />
 
     <span class="ui-checkbox__fake">
-      <UiIcon v-if="model" name="custom:mark-icon" />
+      <ui-icon v-if="model" name="custom:mark-icon" />
     </span>
 
     <span class="ui-checkbox__label">
@@ -68,7 +68,6 @@ const model = defineModel<boolean>({ required: true });
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     border-radius: $radius-1;
     padding: $spacing-2;
     border: 1px solid var(--border-color);
