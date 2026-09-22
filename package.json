@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "lint:style": "stylelint \"src/**/*.{scss,vue}\"",
+    "lint:style:fix": "stylelint \"src/**/*.{scss,vue}\" --fix"
   },
   "dependencies": {
     "eslint": "^10.8.1",
