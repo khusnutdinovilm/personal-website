@@ -16,7 +16,7 @@ import SiteHeaderMobile from "./site-header-mobile.vue";
   &__desktop {
     display: none;
 
-    @include media-up($breakpoint-nav) {
+    @include media-up($breakpoint-desktop) {
       display: block;
     }
   }
@@ -24,7 +24,7 @@ import SiteHeaderMobile from "./site-header-mobile.vue";
   &__mobile {
     display: block;
 
-    @include media-up($breakpoint-nav) {
+    @include media-up($breakpoint-desktop) {
       display: none;
     }
   }

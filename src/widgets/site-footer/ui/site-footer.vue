@@ -50,7 +50,7 @@ import { GITHUB_PROFILE, SOCIAL_LINKS } from "../model/social";
     padding: $spacing-5 $spacing-6;
     flex: 1;
 
-    @include media-up($breakpoint-nav) {
+    @include media-up($breakpoint-desktop) {
       flex: 0 0 auto;
     }
 
@@ -66,7 +66,7 @@ import { GITHUB_PROFILE, SOCIAL_LINKS } from "../model/social";
     display: flex;
     align-items: stretch;
 
-    @include media-up($breakpoint-nav) {
+    @include media-up($breakpoint-desktop) {
       flex: 1;
     }
 
@@ -81,7 +81,7 @@ import { GITHUB_PROFILE, SOCIAL_LINKS } from "../model/social";
       &:last-child {
         border-right: none;
 
-        @include hidden-up($breakpoint-nav);
+        @include hidden-up($breakpoint-desktop);
       }
     }
 
@@ -90,7 +90,7 @@ import { GITHUB_PROFILE, SOCIAL_LINKS } from "../model/social";
       margin-left: auto;
       border-left: $border-hairline;
 
-      @include hidden-down($breakpoint-nav);
+      @include hidden-down($breakpoint-desktop);
     }
   }
 }

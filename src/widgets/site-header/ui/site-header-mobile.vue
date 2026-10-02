@@ -87,7 +87,7 @@ onBeforeUnmount(() => (document.body.style.overflow = ""));
     padding-top: $spacing-4;
     background-color: $theme-background;
 
-    @include media-up($breakpoint-nav) {
+    @include media-up($breakpoint-desktop) {
       display: none;
     }
   }

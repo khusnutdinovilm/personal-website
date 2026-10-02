@@ -87,7 +87,7 @@ const clickMenuItem = (event: Event) => {
     position: relative;
     cursor: pointer;
 
-    @include media-up($breakpoint-nav) {
+    @include media-up($breakpoint-desktop) {
       padding: $spacing-5 $spacing-7;
     }
   }
