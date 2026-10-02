@@ -50,7 +50,17 @@ export default defineNuxtConfig({
       scan: true,
       includeCustomCollections: true,
       // иконки с динамическим именем (:icon из конфига) сканер не ловит — перечисляем явно
-      icons: ["ri:linkedin-fill", "ri:github-fill"],
+      icons: [
+        "ri:linkedin-fill",
+        "ri:github-fill",
+        "ri:reactjs-fill",
+        "ri:html5-fill",
+        "ri:css3-fill",
+        "ri:vuejs-fill",
+        "ri:angularjs-fill",
+        "ri:gatsby-fill",
+        "ri:flutter-fill",
+      ],
     },
     customCollections: [
       {
