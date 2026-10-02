@@ -23,7 +23,7 @@ defineProps<IUiCardProps>();
 
 <style lang="scss">
 .ui-card {
-  $card-header-height: 144px;
+  $card-header-height: 145px;
 
   &__header {
     height: $card-header-height;
