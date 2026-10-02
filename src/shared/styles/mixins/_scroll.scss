@@ -1,0 +1,48 @@
+@use "sass:list";
+@use "../tokens/spacing" as *;
+@use "../tokens/colors" as *;
+@use "../tokens/semantic" as *;
+
+@mixin styled-scrollbar {
+  scrollbar-width: auto;
+  scrollbar-color: $slate-500 transparent;
+
+  &::-webkit-scrollbar {
+    width: 40px;
+    background-color: transparent;
+    border-left: 1px solid $theme-stroke;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $slate-500;
+    border: solid transparent;
+    border-width: $spacing-4 8px;
+    background-clip: padding-box;
+    cursor: grab;
+  }
+}
+
+@mixin hidden-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin scroll-y($scrollbar: "styled") {
+  $allowed: ("styled", "hidden");
+
+  @if not list.index($allowed, $scrollbar) {
+    @error "scroll-y: недопустимое значение `#{$scrollbar}`. Разрешено: `#{$allowed}`";
+  }
+
+  overflow-y: auto;
+  min-height: 0;
+
+  @if $scrollbar == "styled" {
+    @include styled-scrollbar;
+  } @else {
+    @include hidden-scrollbar;
+  }
+}
