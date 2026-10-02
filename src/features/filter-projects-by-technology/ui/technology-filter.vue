@@ -53,13 +53,13 @@ const { technologies, isSelected, toggle } = useProjectFilter();
   & .ui-dropdown-label {
     --bg-color: #{$slate-700};
 
-    @include media-up($breakpoint-nav) {
+    @include media-up($breakpoint-desktop) {
       --bg-color: transparent;
     }
   }
 
   &__dropdown-label {
-    @include media-up($breakpoint-nav) {
+    @include media-up($breakpoint-desktop) {
       border-bottom: $border-hairline;
     }
   }

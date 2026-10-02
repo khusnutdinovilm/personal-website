@@ -33,10 +33,12 @@
 </template>
 
 <script setup lang="ts">
+import { ProjectCard } from "~/entities/project";
+
+import { TechnologyFilter, useProjectFilter } from "~/features/filter-projects-by-technology";
+
 import { UiDropdownLabel } from "~/shared/ui/ui-dropdown-label";
 import { UiSidebarLayout } from "~/shared/ui/ui-sidebar-layout";
-import { TechnologyFilter, useProjectFilter } from "~/features/filter-projects-by-technology";
-import { ProjectCard } from "~/entities/project";
 
 const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
 </script>
@@ -44,7 +46,7 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
 <style lang="scss">
 .projects-page {
   $tabs-min-width: 273px;
-  $card-width: 407px;
+  $card-min-width: 290px;
 
   &__selected-technologies {
     border-right: $border-hairline;
@@ -53,28 +55,25 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
   }
 
   &__list {
-    padding: $spacing-6;
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-6;
+    --list-gap: #{$spacing-6};
+    --list-padding: #{$spacing-6};
 
-    @include media-up($breakpoint-nav) {
-      padding: $spacing-10;
-      padding-bottom: 0;
-      flex-flow: row wrap;
-      gap: $spacing-8;
+    padding: var(--list-padding);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min($card-min-width, 100%), 1fr));
+    gap: var(--list-gap);
+
+    @include media-up($breakpoint-desktop) {
+      --list-gap: #{$spacing-8};
+      --list-padding: #{$spacing-10};
+
+      @include scroll-y;
     }
 
     &-item {
-      flex: 0 calc(33% - $spacing-6);
       display: flex;
       flex-direction: column;
       gap: $spacing-5;
-
-      @include media-up($breakpoint-nav) {
-        min-width: $card-width;
-        max-width: $card-width;
-      }
 
       &-num {
         @include body-md;

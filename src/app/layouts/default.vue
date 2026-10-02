@@ -23,7 +23,7 @@ import { SiteFooter } from "~/widgets/site-footer";
 
 <style lang="scss">
 .layout {
-  min-height: 100dvh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   padding: $spacing-5;
@@ -45,13 +45,16 @@ import { SiteFooter } from "~/widgets/site-footer";
   &__main {
     position: relative;
     flex: 1;
+    min-height: 0;
     display: flex;
     flex-direction: column;
   }
 
   &__page {
     flex: 1;
+    min-height: 0;
     display: flex;
+    overflow: hidden;
   }
 }
 </style>
