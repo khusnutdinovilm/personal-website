@@ -18,7 +18,7 @@
     <ClientOnly>
       <Teleport to="#header-menu-outlet">
         <Transition name="menu">
-          <div v-show="open" id="header-menu" class="site-header-mobile__menu-dropdown">
+          <div v-show="isMobile && open" id="header-menu" class="site-header-mobile__menu-dropdown">
             <div class="site-header-mobile__navigate-caption"># navigate:</div>
 
             <nav class="site-header-mobile__navigate">
@@ -36,14 +36,18 @@
 
 <script setup lang="ts">
 import { UiIcon } from "~/shared/ui/ui-icon";
-import { ALL_NAV_ITEMS } from "../model/nav";
+import { useBreakpoints } from "~/shared/lib/use-breakpoints";
 
 import SiteLogo from "./site-logo.vue";
 import SiteNav from "./site-nav.vue";
 
+import { ALL_NAV_ITEMS } from "../model/nav";
+
 const open = ref(false);
 
 const iconName = computed(() => (open.value ? "ri:close-large-fill" : "ri:menu-line"));
+
+const { isMobile } = useBreakpoints();
 
 const route = useRoute();
 watch(
@@ -51,6 +55,10 @@ watch(
   () => (open.value = false)
 );
 watch(open, (v) => (document.body.style.overflow = v ? "hidden" : ""));
+
+watch(isMobile, (mobile) => {
+  if (!mobile) open.value = false;
+});
 
 onMounted(() => {
   const onKey = (e: KeyboardEvent) => e.key === "Escape" && (open.value = false);
@@ -86,10 +94,6 @@ onBeforeUnmount(() => (document.body.style.overflow = ""));
     overflow-y: auto;
     padding-top: $spacing-4;
     background-color: $theme-background;
-
-    @include media-up($breakpoint-desktop) {
-      display: none;
-    }
   }
 
   &__navigate {

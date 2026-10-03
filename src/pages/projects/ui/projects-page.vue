@@ -47,6 +47,7 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
 .projects-page {
   $tabs-min-width: 273px;
   $card-min-width: 290px;
+  $card-max-width: 407px;
 
   &__selected-technologies {
     border-right: $border-hairline;
@@ -60,7 +61,8 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
 
     padding: var(--list-padding);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min($card-min-width, 100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min($card-min-width, 100%), $card-max-width));
+    justify-content: center;
     gap: var(--list-gap);
 
     @include media-up($breakpoint-desktop) {
@@ -68,6 +70,8 @@ const { selectedLabel, reset, projectsWithTechnologies } = useProjectFilter();
       --list-padding: #{$spacing-10};
 
       @include scroll-y;
+
+      justify-content: start;
     }
 
     &-item {
