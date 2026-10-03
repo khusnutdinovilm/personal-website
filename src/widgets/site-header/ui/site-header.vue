@@ -1,8 +1,8 @@
 <template>
   <div class="site-header">
-    <site-header-desktop class="site-header__desktop"></site-header-desktop>
+    <site-header-desktop class="site-header__desktop" />
 
-    <site-header-mobile class="site-header__mobile"></site-header-mobile>
+    <site-header-mobile class="site-header__mobile" />
   </div>
 </template>
 
